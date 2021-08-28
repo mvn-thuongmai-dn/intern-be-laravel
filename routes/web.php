@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
+Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::prefix('products')->group(function () {
+    Route::get('/', [ProductController::class, 'index'])->name('products');
+    Route::get('/add', [ProductController::class, 'create'])->name('products.add');
+    Route::post('/add', [ProductController::class, 'store']);
+});
