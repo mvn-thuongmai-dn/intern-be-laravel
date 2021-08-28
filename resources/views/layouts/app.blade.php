@@ -10,8 +10,6 @@
     <main class="page-main">
         @yield('content')
     </main>
-    <footer class="page-footer">
-        @include('includes.footer')
-    </footer>
+    @include('includes.footer')
 </body>
 </html>
