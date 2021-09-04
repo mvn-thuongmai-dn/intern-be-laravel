@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h2>List Product</h2>
-    <a type="button" href="{{ route('products.add') }}" class="btn btn-outline-success" data-mdb-ripple-color="dark">
+    <a type="button" href="{{ route('products.create') }}" class="btn btn-outline-success" data-mdb-ripple-color="dark">
       Add product
     </a>
     <table class="table">

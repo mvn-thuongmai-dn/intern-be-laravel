@@ -15,19 +15,13 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('components.products.add');
+        return view('components.products.create');
     }
 
     public function store(Request $request)
     {
-        $product = Product::create([
-            'name' => $request->name,
-            'price' => $request->price,
-            'description' => $request->description,
-            'image' => $request->image,
-            'quantity' => $request->quantity,
-        ]);
-        $product->save();
+        $data = $request->all();
+        Product::create($data);
         return redirect()->route('products');
     }
 }
